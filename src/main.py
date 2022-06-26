@@ -228,7 +228,7 @@ df_senate_candidates_party_max_merge = pd.merge(df_senate_candidates_party, df_s
 
 
 # ---------------------
-# VIZ 9: Show the percentage of votes from each party for the past years.
+# VIZ 9: Show the percentage of votes from each party for the past years on the senate.
 #        Graph that on the x-axis have democrat, republicans and other.
 #        Each of those groups by year.
 #        On the y axis is the number of votes.
@@ -251,7 +251,7 @@ fig_senate_per_party_past_years_sum = px.bar(df_senate_per_party_past_years_sum,
 
 
 # ---------------------
-# VIZ 10:  Show the name of the last 10 presidents show their names and show the number of votes they had to win.
+# VIZ 10:  Show the name of the senate show their names and show the number of votes they had to win.
 # ---------------------
 
 df_senate_names_and_percentage = senate[[
@@ -288,6 +288,7 @@ app.layout = html.Div(children=[
         id='fig_number_votes_per_party_historic',
         figure=fig_number_votes_per_party_historic
     ),
+
     dcc.Graph(
         id='fig_number_votes_per_party_historic_witout_demo_replu',
         figure=fig_number_votes_per_party_historic_witout_demo_replu
@@ -340,7 +341,6 @@ app.layout = html.Div(children=[
             'records'), [{"name": i, "id": i}
                          for i in df_senate_names_and_percentage_new_max_merge1.columns
                          ]),
-
 
 ])
 
