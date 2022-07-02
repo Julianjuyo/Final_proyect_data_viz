@@ -1,0 +1,87 @@
+body{
+    background-color:rgb(34, 37, 49)
+}
+.title {
+  text-align: center;
+}
+
+.title_image{
+    display: flex;
+    flex-direction: row;
+}
+.logo_title{
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+
+}
+.fix_label {
+font-size: 20px;
+  margin: 0;
+  padding: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  width: calc(100%- 40px);
+}
+.dcc_compon {
+  margin: 0;
+  padding: 5px;
+  width: calc(100%- 40px);
+}
+.create_container {
+  border-radius: 5px;
+  background-color: #010915;
+  margin: 18px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 2px 2px 2px #010915;
+}
+.flex-display {
+  display: flex;
+}
+
+
+.create_container2 {
+  align-items: center;
+  border-radius: 15px;
+  background-color: #1f2c56;
+  margin: 20px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 2px 2px 2px 2px #1f2c56;
+}
+
+#title2 {
+  text-align: center;
+}
+
+#title3 {
+  text-align: center;
+}
+
+/*!* Handle on hover *!*/
+/*::-webkit-scrollbar-thumb:hover {*/
+/*  background: white !important;*/
+/*}*/
+
+/*.rc-slider-track {*/
+/*  background-color: red;*/
+/*}*/
+
+/*.rc-slider-dot-active {*/
+/*  border-color: red;*/
+/*  border: solid 2px red;*/
+/*}*/
+
+/*.rc-slider-handle {*/
+/*  background-color: red;*/
+/*  border-color: red;*/
+/*}*/
+
+/*.rc.slider-handle:hover {*/
+/*  border-color: red;*/
+/*}*/
+
+/*.rc.slider-handle-active:active {*/
+/*  border-color: red;*/
+/*}*/
