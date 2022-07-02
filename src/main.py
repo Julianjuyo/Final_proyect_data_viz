@@ -13,6 +13,7 @@ import plotly.graph_objects as go
 from dash import dash, dcc, html, Input, Output, dash_table
 import plotly.express as px
 import pandas as pd
+import base64
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -25,10 +26,16 @@ president = pd.read_csv("../data/1976-2020-president.csv")
 
 senate = pd.read_csv("../data/1976_2020_senate.csv")
 
+image_filename = "../src/USA-flag-660x345.png"
+encoded_image = base64.b64encode(open(image_filename, 'rb').read())
+
+
 # -----------------------------------
 #   PART 2 - Produces charts
 # -----------------------------------
 
+# DEMOCRATIC BLUE
+# Republican RED
 
 # ---------------------
 # Viz 1: 1. The number of votes per party is detailed historic during all the times.
@@ -255,38 +262,60 @@ df_senate_names_and_percentage_new_max_merge1 = pd.merge(df_senate_names_and_per
 
 app.layout = html.Div(children=[
 
+    # html.Div([
+
+    #     html.H1("US ELECTIONS 1976-2020 ",
+    #             style={'color': 'black'},
+    #             className='title'),
+
+    # ], className='logo_title'),
+
+    html.P(children='Data Vizualization Final Project By:'),
+    html.P(children='Queen Mudau and Julian Oliveros Forero'),
+
+
+    # html.Img(src="https://fr.m.wikipedia.org/wiki/Fichier:Flag_of_the_United_States.svg",
+    #          style={'height': '400px'}),
+
     html.Div([
-        html.Img(src="../src/USA-flag-660x345.png",
-             style={'height': '40px'},
-             className='title_image'),
-
-        html.H6("US ELECTIONS 1976-2020 ",
-                style={'color': 'red'},
-                className='title'),
-
-    ], className='logo_title'),
+        html.Img(src='data:image/png;base64,{}'.format(encoded_image))
+    ]),
 
 
-    html.H1(children='Historic US Election Results'),
+    # html.Img(src="./src/USA-flag-660x345.png"),
 
-    html.Div(children='''
-        Dash: A web application framework for Python.
-        By:
-            Julian Esteban Oliveros Forero
-            Queen
-    '''),
 
+    html.H1(children='Historic US Election Results for the period  1976-2020',
+            style={'textAlign': 'center', "font-weight": "bold"}),
+    html.Br(),
+
+    html.H2(children='Historic US Election for President',
+            style={'textAlign': 'center', "font-weight": "bold", "margin-left": "15px"}),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_number_votes_per_party_historic',
         figure=fig_number_votes_per_party_historic
     ),
-
     html.P(children='we like the graph'),
+    html.Br(),
 
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_number_votes_per_party_historic_witout_demo_replu',
         figure=fig_number_votes_per_party_historic_witout_demo_replu
     ),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     html.Div([
         html.H4('Polotical candidate voting pool analysis'),
         html.P("Select a candidate:"),
@@ -298,23 +327,60 @@ app.layout = html.Div(children=[
         ),
         dcc.Graph(id="graph_map"),
     ]),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_president_per_party_past_years_sum',
         figure=fig_president_per_party_past_years_sum
     ),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dash_table.DataTable(
         df_president_names_and_percentage_new_max_merge1.to_dict(
             'records'), [{"name": i, "id": i}
                          for i in df_president_names_and_percentage_new_max_merge1.columns
                          ]),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+
+    html.H2(children='Historic US Election for Senate',
+            style={'textAlign': 'center', "font-weight": "bold"}),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_senate_candidates_party_sum_all',
         figure=fig_senate_candidates_party_sum_all
     ),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_senate_number_votes_per_party_historic_witout',
         figure=fig_senate_number_votes_per_party_historic_witout
     ),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     html.Div([
         html.H4('Polotical candidate voting pool analysis'),
         html.P("Select a year:"),
@@ -326,15 +392,37 @@ app.layout = html.Div(children=[
         ),
         dcc.Graph(id="graph_map_senate"),
     ]),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_senate_per_party_past_years_sum',
         figure=fig_senate_per_party_past_years_sum
     ),
+    html.P(children='we like the graph'),
+    html.Br(),
+
+
+    html.H3(children='Graph Name',
+            style={"font-weight": "bold"}),
     dash_table.DataTable(
         df_senate_names_and_percentage_new_max_merge1.to_dict(
             'records'), [{"name": i, "id": i}
                          for i in df_senate_names_and_percentage_new_max_merge1.columns
                          ]),
+    html.P(children='we like the graph'),
+    html.Br(),
+    html.Br(),
+
+    html.H2(children='Final Conclusions',
+            style={'textAlign': 'center', "font-weight": "bold"}),
+    html.Br(),
+    html.P(children='we like the graph'),
+    html.Br(),
+
 
 ])
 
