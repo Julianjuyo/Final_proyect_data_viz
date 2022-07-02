@@ -41,16 +41,13 @@ df_goals_per_position_sum = df_president_candidates_party.groupby(
     ["party_detailed"]).sum().reset_index(drop=False)
 
 
-df = px.data.tips()
-fig_number_votes_per_party_historic = px.treemap(df_goals_per_position_sum,
-                                                 path=[px.Constant(
-                                                     "all"), 'party_detailed'],
-                                                 values='candidatevotes',
-                                                 title="The number of votes per party is detailed historic during all the times.")
+df_goals_per_position_sum.drop(
+    df_goals_per_position_sum.loc[df_goals_per_position_sum['candidatevotes'] < 600000].index, inplace=True)
 
-fig_number_votes_per_party_historic.update_traces(root_color="lightgrey")
-fig_number_votes_per_party_historic.update_layout(
-    margin=dict(t=50, l=25, r=25, b=25))
+
+fig_number_votes_per_party_historic = px.pie(df_goals_per_position_sum, values='candidatevotes',
+                                             names='party_detailed', title='Population of European continent')
+
 
 # fig_number_votes_per_party_historic.show()
 
@@ -58,7 +55,8 @@ fig_number_votes_per_party_historic.update_layout(
 # ---------------------
 # Viz 2: The number of votes per party is detailed historic during all the times WITHOUT REPUBLICAN NOR DEMOCRAT
 # ---------------------
-df_president_candidates_party_witout_demo_replu = df_president_candidates_party
+df_president_candidates_party_witout_demo_replu = president[[
+    "candidatevotes", "party_detailed"]]
 
 df_president_candidates_party_witout_demo_replu.drop(
     df_president_candidates_party_witout_demo_replu.loc[df_president_candidates_party_witout_demo_replu['party_detailed'] == "DEMOCRAT"].index, inplace=True)
@@ -70,7 +68,6 @@ df_president_candidates_party_witout_demo_replu = df_president_candidates_party_
     ["party_detailed"]).sum().reset_index(drop=False)
 
 
-df = px.data.tips()
 fig_number_votes_per_party_historic_witout_demo_replu = px.treemap(df_president_candidates_party_witout_demo_replu,
                                                                    path=[px.Constant(
                                                                        "all"), 'party_detailed'],
@@ -144,19 +141,6 @@ df_president_names_and_percentage_new_max_merge1 = pd.merge(df_president_names_a
     'year', 'candidatevotes'], right_on=['year', 'candidatevotes'])
 
 
-# fig_df_president_names_and_percentage_new_max_merge1 = go.Figure(data=[go.Table(
-#     header=dict(values=list(df_president_names_and_percentage_new_max_merge1.columns),
-#                 fill_color='paleturquoise',
-#                 align='left'),
-#     cells=dict(values=[df_president_names_and_percentage_new_max_merge1.year,
-#                        df_president_names_and_percentage_new_max_merge1.candidatevotes,
-#                        df_president_names_and_percentage_new_max_merge1.party_detailed,
-#                        df_president_names_and_percentage_new_max_merge1.candidate],
-#                fill_color='lavender',
-#                align='left'))
-# ])
-
-
 # ---------------------
 # Viz 1: 6. The number of votes per party is detailed historic during all the times.
 # ---------------------
@@ -168,23 +152,18 @@ df_senate_candidates_party_sum = df_senate_candidates_party.groupby(
     ["party_detailed"]).sum().reset_index(drop=False)
 
 
-df = px.data.tips()
-fig_senate_candidates_party_sum_all = px.treemap(df_senate_candidates_party_sum,
-                                                 path=[px.Constant(
-                                                     "all"), 'party_detailed'],
-                                                 values='candidatevotes',
-                                                 title="The number of votes per party is detailed historic during all the times.")
+df_senate_candidates_party_sum.drop(
+    df_senate_candidates_party_sum.loc[df_senate_candidates_party_sum['candidatevotes'] < 1000000].index, inplace=True)
 
-fig_senate_candidates_party_sum_all.update_traces(root_color="lightgrey")
-fig_senate_candidates_party_sum_all.update_layout(
-    margin=dict(t=50, l=25, r=25, b=25))
-# fig_senate_candidates_party_sum_all.show()
+
+fig_senate_candidates_party_sum_all = px.pie(df_senate_candidates_party_sum, values='candidatevotes',
+                                             names='party_detailed', title='Population of European continent')
 
 
 # ---------------------
 # Viz 7: The number of votes per party is detailed historic during all the times WITHOUT REPUBLICAN NOR DEMOCRAT for the senate
 # ---------------------
-df_senate_candidates_party_repli = df_senate_candidates_party
+df_senate_candidates_party_repli = senate[["candidatevotes", "party_detailed"]]
 
 df_senate_candidates_party_repli.drop(
     df_senate_candidates_party_repli.loc[df_senate_candidates_party_repli['party_detailed'] == "DEMOCRAT"].index, inplace=True)
@@ -351,12 +330,8 @@ app.layout = html.Div(children=[
 def display_choropleth(input_value):
     df_senate_candidates_party_max_merge_2 = df_senate_candidates_party_max_merge.copy()
 
-    print(df_senate_candidates_party_max_merge["year"].unique())
-    print(input_value)
     df_senate_candidates_party_max_merge_2.drop(
         df_senate_candidates_party_max_merge_2.loc[df_senate_candidates_party_max_merge_2['year'] != int(input_value)].index, inplace=True)
-
-    print(df_senate_candidates_party_max_merge_2)
 
     fig = px.choropleth(locations=df_senate_candidates_party_max_merge_2["state_po"],
                         locationmode="USA-states",
