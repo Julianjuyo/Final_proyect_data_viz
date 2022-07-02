@@ -254,6 +254,19 @@ df_senate_names_and_percentage_new_max_merge1 = pd.merge(df_senate_names_and_per
 
 
 app.layout = html.Div(children=[
+
+    html.Div([
+        html.Img(src="../src/USA-flag-660x345.png",
+             style={'height': '40px'},
+             className='title_image'),
+
+        html.H6("US ELECTIONS 1976-2020 ",
+                style={'color': 'red'},
+                className='title'),
+
+    ], className='logo_title'),
+
+
     html.H1(children='Historic US Election Results'),
 
     html.Div(children='''
@@ -267,6 +280,8 @@ app.layout = html.Div(children=[
         id='fig_number_votes_per_party_historic',
         figure=fig_number_votes_per_party_historic
     ),
+
+    html.P(children='we like the graph'),
 
     dcc.Graph(
         id='fig_number_votes_per_party_historic_witout_demo_replu',
