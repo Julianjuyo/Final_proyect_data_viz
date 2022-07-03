@@ -1,10 +1,10 @@
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
 
-# FINAL PROJECT DATA VISUALITION
+# FINAL PROJECT DATA VISUALIZATION
 # BY:
-#   JULIAN OLIVEROS FORERO
-#   QUEEN
+#   Julian Oliveros Forero
+#   QUEEN Mudau
 
 
 from gettext import translation
@@ -434,21 +434,11 @@ app.layout = html.Div(children=[
     html.Br(),
 
 
-    # html.Div([
-    #     html.P("Select a year:"),
-    #     dcc.RadioItems(
-    #         id='year_change_1',
-    #         options=df_president_candidates_party_max_merge["year"].unique(),
-    #         value="2020",
-    #         inline=True
-    #     ),
-    #     dcc.Graph(id="graph_map"),
-    # ]),
 
 
 
 
-    html.H3(children='Graph tha shows the total votes of the most representative parties over the diferent presidency elections between 1976-2020',
+    html.H3(children='Graph that shows the total votes of the most representative parties over the diferent presidency elections between 1976-2020',
             style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_president_per_party_past_years_sum',
@@ -595,7 +585,7 @@ app.layout = html.Div(children=[
     html.Br(),
 
 
-    html.H3(children='Graph tha shows the total votes of the most representative parties over the diferent senate elections between 1976-2020',
+    html.H3(children='Graph that shows the total votes of the most representative parties over the diferent senate elections between 1976-2020',
             style={"font-weight": "bold"}),
     dcc.Graph(
         id='fig_senate_per_party_past_years_sum',
