@@ -333,15 +333,14 @@ app.layout = html.Div(children=[
 
 
     html.Div([
-        html.Div(" hola ", style={
-            'color': 'red',
-            "font-weight": "bold",
-            'backgroundColor': 'red',
+        html.Div(" . ", style={
+            'color': 'rgba(255, 0, 0, 0.0001)',
+            'backgroundColor': 'rgba(255, 0, 0, 0.9)',
             "font-size": "40px"}),
-        html.Div("  hola  ", style={
+        html.Div("  .  ", style={
             "font-weight": "bold",
-            'color': 'blue',
-            'backgroundColor': 'blue',
+            'color': 'rgba(0, 0, 255, 0.0000001)',
+            'backgroundColor': 'rgba(0, 0, 255, 0.9)',
             "font-size": "40px"})
 
     ], style={
@@ -368,10 +367,10 @@ app.layout = html.Div(children=[
         id='fig_number_votes_per_party_historic',
         figure=fig_number_votes_per_party_historic
     ),
-    html.P(children="Democrat and republic party are the  governing party in a presidential system with more votes  since they hold a majority of elected positions in presidential systems.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="Democrat and republic party are the  governing party in a presidential system with more votes since they hold a majority of elected positions in presidential systems.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
@@ -383,12 +382,11 @@ app.layout = html.Div(children=[
         id='fig_number_votes_per_party_historic_witout_demo_replu',
         figure=fig_number_votes_per_party_historic_witout_demo_replu
     ),
-    html.P(children="The Libertarian Party it is the largest continuing third party in the United States.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="The Independent Party it is the largest continuing third party in the United States.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
-
 
 
 
@@ -416,19 +414,19 @@ app.layout = html.Div(children=[
         dcc.Graph(id="graph_map")
 
     ]),
-    html.P(children='As the voting history shows, president   Reagan  from Republic party  carried every state except for Minnesota(MN) and  also  remain  the only presidential candidate since  1976  to 2020 to win almost all the state. Republic party won the elections for three consecutive term.',
-           style={
-               'color': 'black',
-               "font-size": "20px"}
-           ),
-    html.P(children='States—such as Alaska(AK), Oklahoma(OK), and Wyoming(WY)—have consistently supported the Republican Party. On the other hand, Minnesota(MN), has been Democrat strongholds .',
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
-    html.P(children="""Many states get heavy red, many others get heavy blue, while some stay "swing", which are: Virginia, North Carolina, Pennsylvania, Ohio, Iowa, Georgia, Florida and Arizona. these are 'battleground' for presidential campaigns .""",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children='As the voting history shows, president   Reagan  from Republic party  carried every state except for Minnesota(MN) and  also  remain  the only presidential candidate since  1976  to 2020 to win almost all the state. Republic party won the elections for three consecutive term.',
+            style={
+                'color': 'black',
+                "font-size": "20px"}
+            ),
+    html.Li(children='States—such as Alaska(AK), Oklahoma(OK), and Wyoming(WY)—have consistently supported the Republican Party. On the other hand, Minnesota(MN), has been Democrat strongholds .',
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="""Many states get heavy red, many others get heavy blue, while some stay "swing", which are: Virginia, North Carolina, Pennsylvania, Ohio, Iowa, Georgia, Florida and Arizona. these are 'battleground' for presidential campaigns .""",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
 
 
 
@@ -456,10 +454,10 @@ app.layout = html.Div(children=[
         id='fig_president_per_party_past_years_sum',
         figure=fig_president_per_party_past_years_sum
     ),
-    html.P(children="",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="Minor parties face difficulties in  winning elections. looking at 2020 election is the indications that the minor-party candidates was factors anywhere near the level they were for  1990s election.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
@@ -489,29 +487,29 @@ app.layout = html.Div(children=[
                 'if': {
                     'filter_query': '{party_detailed} contains "REPUBLICAN"',
                 },
-                'backgroundColor': 'red',
+                'backgroundColor': 'rgba(255, 0, 0, 0.8)',
             },
             {
                 'if': {
                     'filter_query': '{party_detailed} contains "DEMOCRAT"',
                 },
-                'backgroundColor': 'blue',
+                'backgroundColor': 'rgba(0, 0, 255, 0.8)',
 
             }]),
-    html.P(children="The 2020 election had  the largest voter turnout in U.S.                                                                                                                       Because of the COVID-19 pandemic, many states expanded vote-by-mail to help people safely vote in the 2020 election. the availability of mail voting helped increase overall voter turnout.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="The 2020 election had  the largest voter turnout in U.S.                                                                                                                       Because of the COVID-19 pandemic, many states expanded vote-by-mail to help people safely vote in the 2020 election. the availability of mail voting helped increase overall voter turnout.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
 
-    html.P(children="After the presidency Bush, it seems to be more challenging for any Republican candidate to get more popular votes. History repeated in the 2016 election with 8 times larger margin, Trump won the presidency with almost 3 million votes behind Clinton.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="After the presidency Bush, it seems to be more challenging for any Republican candidate to get more popular votes. History repeated in the 2016 election with 8 times larger margin, Trump won the presidency with almost 3 million votes behind Clinton.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
 
-    html.P(children="The voter turnout rate in America has fluctuated over time but in general, it has been increasing. It's heavily relied on the voting policies change in America. the voting right has reached closer to each of every group of society.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="The voter turnout rate in America has fluctuated over time but in general, it has been increasing. It's heavily relied on the voting policies change in America. the voting right has reached closer to each of every group of society.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
@@ -531,10 +529,14 @@ app.layout = html.Div(children=[
         id='fig_senate_candidates_party_sum_all',
         figure=fig_senate_candidates_party_sum_all
     ),
-    html.P(children="",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="""During the period 1976 and 2020 the two most representatives parties that have had control over the senate of the us are the republicans and democrasts being the Democrats the onees that have had more number of votes leading with a 4% of diference repect the Republicans""",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="The 4% of all the votes correspond to around 60 diferent parties while the other 94% correspond to democratis and republicans",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
@@ -544,10 +546,10 @@ app.layout = html.Div(children=[
         id='fig_senate_number_votes_per_party_historic_witout',
         figure=fig_senate_number_votes_per_party_historic_witout
     ),
-    html.P(children="",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="The Libertarian, Democratic-farmer-Labor and Independent are the next 3 parties with more votes in the senate of the US.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
@@ -574,10 +576,22 @@ app.layout = html.Div(children=[
 
     ]),
 
-    html.P(children="",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="During the year 2000 the states of ND,MN and GA had candidate that did not belong to Republican neither democratic party.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="The western states of the US over the period where mostly Democratic ",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="After 1996 the south East states of US started to voted mostly for Republic party ",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="Over the other states theres not a clear trend of votes either for republican nor democratis since it changes a lot between both.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
@@ -587,10 +601,19 @@ app.layout = html.Div(children=[
         id='fig_senate_per_party_past_years_sum',
         figure=fig_senate_per_party_past_years_sum
     ),
-    html.P(children="",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="Since the last century the amount of total votes during the elections of the senate has increased which means that its good that more people have claim the right to vote",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="During the period 2012-2018 the total amount of votes for the Democratac party was slightly higher than for the republican. and for the year 2020 this results changes to be the Republican having more votes. ",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+    html.Li(children="The diference of amount of votes for parties that are not republican nor democrtic its very low even dthought its bigger for the actual century than from the last one.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+
     html.Br(),
 
 
@@ -620,21 +643,24 @@ app.layout = html.Div(children=[
                 'if': {
                     'filter_query': '{party_detailed} contains "REPUBLICAN"',
                 },
-                'backgroundColor': 'red',
-                "opacity-backgroundColor": 0.2
+                'backgroundColor': 'rgba(255, 0, 0, 0.8)'
             },
             {
                 'if': {
                     'filter_query': '{party_detailed} contains "DEMOCRAT"',
                 },
-                'backgroundColor': 'blue',
-                "opacity-backgroundColor": 0.2
+                'backgroundColor': 'rgba(0, 0, 255, 0.8)'
 
             }]),
-    html.P(children="",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="The candiates with more votes during the period 1976-2020 for the senate has not a clear winner between the political parties republican and democratats.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+
+    html.Li(children="For the period of 1976-1890 the republican party candidates where having most of the votes.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
     html.Br(),
 
@@ -642,29 +668,34 @@ app.layout = html.Div(children=[
     html.H2(children='Final Conclusions',
             style={'textAlign': 'center', "font-weight": "bold"}),
     html.Br(),
-    html.P(children="Minor parties can invigorate voter interest by promoting a unique or flamboyant candidate and by focusing attention on a contentious issue. the methods implemented for  2020 elections must be repeated to increase voters   turnover. Recessions may not fully urge people to go voting, but it has been the game-changer in deciding if the ruling party will continue to stay in power.so the parties in power must always prepare for that.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="Minor parties can invigorate voter interest by promoting a unique or flamboyant candidate and by focusing attention on a contentious issue. the methods implemented for  2020 elections must be repeated to increase voters   turnover. Recessions may not fully urge people to go voting, but it has been the game-changer in deciding if the ruling party will continue to stay in power.so the parties in power must always prepare for that.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
 
-    html.P(children="because there are only two big parties which can able to govern the country, American has not always voted to choose the president but the party. And more importantly, they vote to decide whether to continue the direction of the current ruling party or to change.",
-           style={
-               'color': 'black',
-               "font-size": "20px"}),
+    html.Li(children="because there are only two big parties which can able to govern the country, American has not always voted to choose the president but the party. And more importantly, they vote to decide whether to continue the direction of the current ruling party or to change.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
+
+    html.Li(children="The diference ov er the total votes and the number of elected president for the parties Democratad and Conservative is slightly diferent which is good for the country since its not allways governed by the same political party.",
+            style={
+                'color': 'black',
+                "font-size": "20px"}),
     html.Br(),
 
 
 
     html.Div([
-        html.Div(" hola ", style={
-            'color': 'red',
+        html.Div(" . ", style={
+            'color': 'rgba(255, 0, 0, 0.00001)',
             "font-weight": "bold",
-            'backgroundColor': 'red',
+            'backgroundColor': 'rgba(255, 0, 0, 0.8)',
             "font-size": "40px"}),
-        html.Div("  hola  ", style={
+        html.Div("  .  ", style={
             "font-weight": "bold",
-            'color': 'blue',
-            'backgroundColor': 'blue',
+            'color': 'rgba(0, 0, 255, 0.000001)',
+            'backgroundColor': 'rgba(0, 0, 255, 0.8)',
             "font-size": "40px"})
 
     ], style={
